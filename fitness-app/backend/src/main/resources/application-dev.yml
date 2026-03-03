@@ -1,0 +1,10 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+app:
+  cors:
+    # WARNING: wildcard CORS is intentional for local dev only — never deploy with this profile
+    allowed-origins: "*"

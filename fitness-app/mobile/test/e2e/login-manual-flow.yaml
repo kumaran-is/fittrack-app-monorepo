@@ -1,0 +1,32 @@
+appId: com.example.fitness_app
+name: "Login with email and password"
+---
+# Step 1: Verify Login screen is visible
+- assertVisible: "FitTrack"
+- assertVisible: "Sign in to continue"
+
+# Step 2: Tap email field and enter text
+- tapOn:
+    point: "50%,42%"
+- inputText: "demo@fitness.com"
+- hideKeyboard
+
+# Step 3: Tap password field and enter text
+- tapOn:
+    point: "50%,49%"
+- inputText: "Demo1234!"
+- hideKeyboard
+- takeScreenshot: screenshots/07-login-filled
+
+# Step 4: Tap Sign In button (~57% from top)
+- tapOn:
+    point: "50%,57%"
+
+# Step 5: Wait for API call and navigation
+- extendedWaitUntil:
+    visible: "Exercise Library"
+    timeout: 15000
+
+# Step 6: Verify we landed on the home screen
+- assertVisible: "Exercise Library"
+- takeScreenshot: screenshots/08-login-success

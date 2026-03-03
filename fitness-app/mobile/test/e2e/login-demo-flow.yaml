@@ -1,0 +1,53 @@
+appId: com.example.fitness_app
+name: "Login with Demo credentials and navigate all tabs"
+---
+# Step 1: Verify Login screen
+- assertVisible: "FitTrack"
+- assertVisible: "Sign in to continue"
+- takeScreenshot: screenshots/01-login-screen
+
+# Step 2: Tap Demo Login
+- tapOn: "Try Demo Login"
+
+# Step 3: Wait for API login + navigation
+- extendedWaitUntil:
+    visible: "Exercise Library"
+    timeout: 15000
+
+# Step 4: Verify Exercises screen (home tab)
+- assertVisible: "Exercise Library"
+- takeScreenshot: screenshots/02-exercises-screen
+
+# Step 5: Navigate to Plans tab (2nd tab)
+- tapOn:
+    point: "37%,97%"
+- extendedWaitUntil:
+    visible: "Workout Plans"
+    timeout: 10000
+- assertVisible: "Workout Plans"
+- takeScreenshot: screenshots/03-plans-screen
+
+# Step 6: Navigate to Workout tab (3rd tab)
+- tapOn:
+    point: "62%,97%"
+- extendedWaitUntil:
+    visible: "Workout"
+    timeout: 10000
+- takeScreenshot: screenshots/04-workout-screen
+
+# Step 7: Navigate to Progress tab (4th tab)
+- tapOn:
+    point: "87%,97%"
+- extendedWaitUntil:
+    visible: "Progress"
+    timeout: 10000
+- assertVisible: "Progress"
+- takeScreenshot: screenshots/05-progress-screen
+
+# Step 8: Navigate back to Exercises tab (1st tab)
+- tapOn:
+    point: "12%,97%"
+- extendedWaitUntil:
+    visible: "Exercise Library"
+    timeout: 10000
+- takeScreenshot: screenshots/06-exercises-return

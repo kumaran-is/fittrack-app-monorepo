@@ -1,0 +1,23 @@
+appId: com.example.fitness_app
+name: "Navigate to Register screen and verify form"
+---
+# Step 1: Verify Login screen
+- assertVisible: "FitTrack"
+
+# Step 2: Navigate to Register
+- tapOn: "Don't have an account? Register"
+- extendedWaitUntil:
+    visible: "Create Account"
+    timeout: 10000
+
+# Step 3: Verify Register screen
+- assertVisible: "Create Account"
+- takeScreenshot: screenshots/09-register-screen
+
+# Step 4: Navigate back to Login
+- tapOn: "Already have an account? Sign in"
+- extendedWaitUntil:
+    visible: "FitTrack"
+    timeout: 10000
+- assertVisible: "Sign in to continue"
+- takeScreenshot: screenshots/10-back-to-login
